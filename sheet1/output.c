@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
 {
     int fds[] = {STDOUT_FILENO, STDERR_FILENO, USER_FILENO};
 
+    dup2(STDOUT_FILENO, USER_FILENO);
+
     for (int i = 0; i < sizeof(fds)/sizeof(fds[0]); i++) {
         char string[MAX_BUFFER_SIZE];
         int fd = fds[i];
